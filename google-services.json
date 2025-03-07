@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "836692836048",
+    "project_id": "shopping-card-7348c",
+    "storage_bucket": "shopping-card-7348c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836692836048:android:3b4fa5996b1a2fe6a768d5",
+        "android_client_info": {
+          "package_name": "com.mmaquera.odoo.shopping"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiPsqmF9HOii-g9P4QskIZiJRicju1g9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

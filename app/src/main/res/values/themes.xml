@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Shoppingcard" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- Tema de Splash Screen -->
+    <style name="Theme.Shoppingcard.Starting" parent="Theme.SplashScreen">
+        <!-- Color de fondo del Splash Screen -->
+        <item name="windowSplashScreenBackground">@color/white</item>
+
+        <!-- Ícono del Splash Screen (opcional) -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_background</item>
+
+        <!-- Duración de la animación del ícono (opcional) -->
+        <item name="windowSplashScreenAnimationDuration">1000</item> <!-- 1 segundo -->
+
+        <!-- Color de fondo post-Splash (opcional) -->
+        <item name="postSplashScreenTheme">@style/Theme.Shoppingcard</item>
+    </style>
+</resources>
