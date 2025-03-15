@@ -3,7 +3,9 @@ package com.mmaquera.odoo.shopping.presentation.client
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -19,11 +21,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.mmaquera.odoo.shopping.ui.theme.ShoppingcardTheme
 
-
 @Composable
 fun ClientScreen(
     viewModel: ClientViewModel = hiltViewModel(),
     clientCode: Int,
+    goToCreateOrder: () -> Unit = {},
     onBackPressed: () -> Unit = {}
 ) {
 
@@ -31,6 +33,7 @@ fun ClientScreen(
 
     ClientContent(
         client = viewState.client,
+        goToCreateOrder = goToCreateOrder,
         onBackPressed = onBackPressed
     )
 
@@ -44,9 +47,20 @@ fun ClientScreen(
 @Composable
 fun ClientContent(
     client: ClientModel = ClientModel.dummy(),
+    goToCreateOrder: () -> Unit = {},
     onBackPressed: () -> Unit = {}
 ) {
     Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = goToCreateOrder
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ShoppingCart,
+                    contentDescription = "Crear Pedido"
+                )
+            }
+        },
         topBar = {
             TopAppBar(
                 navigationIcon = {

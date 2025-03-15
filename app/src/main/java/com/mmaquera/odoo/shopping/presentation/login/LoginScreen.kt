@@ -3,21 +3,25 @@ package com.mmaquera.odoo.shopping.presentation.login
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ChainStyle
@@ -62,6 +66,8 @@ fun LoginContent(
     onPasswordChange: (String) -> Unit = {},
     loginOnClick: () -> Unit = {},
 ) {
+    val focusManager = LocalFocusManager.current
+
     ConstraintLayout(
         modifier = Modifier
             .fillMaxSize()
@@ -92,7 +98,7 @@ fun LoginContent(
             contentDescription = String.Empty
         )
 
-        TextField(
+        OutlinedTextField(
             modifier = Modifier
                 .constrainAs(emailTextField) {
                     top.linkTo(shoppingIcon.bottom)
@@ -106,10 +112,14 @@ fun LoginContent(
             onValueChange = onEmailChange,
             label = {
                 Text("Correo electronico")
-            }
+            },
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+            keyboardActions = KeyboardActions(
+                onNext = { focusManager.moveFocus(FocusDirection.Next) }
+            )
         )
 
-        TextField(
+        OutlinedTextField(
             modifier = Modifier
                 .constrainAs(passwordTextField) {
                     top.linkTo(emailTextField.bottom)
@@ -120,6 +130,7 @@ fun LoginContent(
                 }
                 .padding(top = 15.dp),
             value = password,
+            visualTransformation = PasswordVisualTransformation(),
             onValueChange = onPasswordChange,
             label = {
                 Text("Constraseña")

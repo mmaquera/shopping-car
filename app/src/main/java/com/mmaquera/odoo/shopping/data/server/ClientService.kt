@@ -43,10 +43,13 @@ class ClientService @Inject constructor(
                         },
                         buildJsonArray {
                             add(JsonPrimitive("name"))
+                            add(JsonPrimitive("street"))
                             add(JsonPrimitive("email"))
                             add(JsonPrimitive("phone"))
+                            add(JsonPrimitive("mobile"))
+                            add(JsonPrimitive("city"))
+                            add(JsonPrimitive("vat_label"))
                             add(JsonPrimitive("vat"))
-                            add(JsonPrimitive("company_id"))
                         }, // Campos a recuperar
                         JsonPrimitive(0), // Offset
                         JsonPrimitive(0), // Límite

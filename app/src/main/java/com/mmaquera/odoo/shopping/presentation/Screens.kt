@@ -10,3 +10,9 @@ object Home
 
 @Serializable
 data class Client(val id: Int)
+
+@Serializable
+object Order
+
+@Serializable
+object OrderDetail
